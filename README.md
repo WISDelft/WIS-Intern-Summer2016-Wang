@@ -1,2 +1,4 @@
-# WIS-Intern-Summer2016-Wang
-Summer project of Bo Wang in WIS
+###UrbanLearning
+####Deep learning api in an urban context
+
+
