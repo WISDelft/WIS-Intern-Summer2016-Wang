@@ -13,7 +13,7 @@ _col = _db[MONGO_COL]
 #
 with open(ORIGINAL_FILE) as f:
     for idx, line in enumerate(f):
-	print 'processing %d' idx
+	print 'processing %d', idx
 	instance = {}
 	try:
 	    line = line.split()
