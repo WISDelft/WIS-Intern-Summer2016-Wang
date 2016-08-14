@@ -26,7 +26,9 @@ def load_mean(file_path):
 def load_image(img_id):
     """Load image by id, save to temp
     Args:
-	id(str): id of the image
+	img_id(str): id of the image
+    Return:
+	img_path(str): image path of current image to be classify/detect)
     """
     file_path = None
     with Conn(database = conf.MONGO_DB, host=conf.MONGO_IP, port=conf.MONGO_PORT, collection=conf.MONGO_COL) as col:
@@ -46,6 +48,7 @@ def save_image(url, file_name):
     """Save image to local storage
     Args:
         url(str):url of image
+	file_name(str): storage path with file name
     """
     u = urllib.urlopen(url)
     data = u.read()
