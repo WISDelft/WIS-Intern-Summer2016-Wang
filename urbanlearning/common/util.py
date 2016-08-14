@@ -3,7 +3,7 @@ import re
 import sys
 import conf
 import lxml
-import urllib
+import shutil
 import requests
 import numpy as np
 from lxml import html
@@ -40,6 +40,7 @@ def load_image(img_id):
 	    image_path = page_source.xpath('//meta[@property="og:image"]/@content')[0]
 	    image_path = image_path.split('.jpg')[0] + '.jpg'
 	    file_path = conf.TEMP_PATH + img_id + '.jpg'
+	    print image_path
 	    save_image(image_path, file_path)
     return file_path
 
@@ -50,10 +51,10 @@ def save_image(url, file_name):
         url(str):url of image
 	file_name(str): storage path with file name
     """
-    u = urllib.urlopen(url)
-    data = u.read()
-    f = open(file_name, 'wb')
-    f.close()
+    response = requests.get(url, stream = True)
+    with open(file_name, 'wb') as out:
+	shutil.copyfileobj(response.raw, out)
+    del response
 
 
 
