@@ -7,9 +7,10 @@ def classification(img_id):
         img = caffe.io.load_image(img_path)
         res_net.blobs['data'].data[...] = transformer.preprocess('data', img)
         out = res_net.forward()
-	top_k_label = util.get_labels(res_net,mconf.RES_LABEL)
-	top_k_prob = util.get_probs(res_net)
+	top_k_label = util.get_labels(out,mconf.RES_LABEL)
+	top_k_prob = util.get_probs(out)
         result = util.get_label_prob_pairs(top_k_label, top_k_prob)
+	print result
         return jsonify({'status': 200, 'result':result})
     else:
 	return jsonify({'status':400, 'result': 'Resource not found'})

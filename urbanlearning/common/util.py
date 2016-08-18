@@ -58,22 +58,23 @@ def save_image(url, file_name):
 	shutil.copyfileobj(response.raw, out)
     del response
 
-def get_labels(model, label_path):
+def get_labels(out, label_path):
     """Get top k label of predicted result
     """
-    top_k = model.blobs['prob'].data[0]
-    top_k_label = top_k.flatten().argsort()[-1:-6:-1]
+    out_prob = out['prob'][0]
+    top_k_label = out_prob.argsort()[::-1][:5]
     labels = np.loadtxt(label_path, str, delimiter='\t')
     labels = labels[top_k_label].tolist()
     return labels
 
-def get_probs(model):
+def get_probs(out):
     """Get top k prob of predicted result
     """
-    top_k = model.blobs['prob'].data[0]
-    top_k_prob = top_k.flatten().argsort()[-1:-6:-1]
-    top_k_prob = [format(i, 'f') for i in top_k_prob]
-    return top_k_prob
+    out_prob = out['prob'][0]
+    top_k_prob = out_prob.argsort()[::-1][:5]
+    probs = out_prob[top_k_prob]
+    probs = [float(prob) for prob in probs]
+    return probs
 
 def get_label_prob_pairs(labels, probs):
     """Get label probability pair
