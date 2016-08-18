@@ -25,24 +25,24 @@ Example result:
 {
   "result": [
     {
-      "label": "n04371430 swimming trunks, bathing trunks", 
-      "prob": "0.000014"
+      "label": "n06794110 street sign", 
+      "prob": 0.2572062313556671
     }, 
     {
-      "label": "n09421951 sandbar, sand bar", 
-      "prob": "0.000001"
+      "label": "n02776631 bakery, bakeshop, bakehouse", 
+      "prob": 0.1639353483915329
     }, 
     {
-      "label": "n09288635 geyser", 
-      "prob": "0.000112"
+      "label": "n06596364 comic book", 
+      "prob": 0.08545635640621185
     }, 
     {
-      "label": "n02807133 bathing cap, swimming cap", 
-      "prob": "0.000088"
+      "label": "n04070727 refrigerator, icebox", 
+      "prob": 0.048737164586782455
     }, 
     {
-      "label": "n09468604 valley, vale", 
-      "prob": "0.000537"
+      "label": "n02977058 cash machine, cash dispenser, automated teller machine, automatic teller machine, automated teller, automatic teller, ATM", 
+      "prob": 0.028399966657161713
     }
   ], 
   "status": 200
