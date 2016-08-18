@@ -31,6 +31,7 @@ def load_image(img_id):
 	img_path(str): image path of current image to be classify/detect)
     """
     file_path = None
+    link = ''
     with Conn(database = conf.MONGO_DB, host=conf.MONGO_IP, port=conf.MONGO_PORT, collection=conf.MONGO_COL) as col:
 	doc = col.find_one({'id':img_id})
 	if doc:
@@ -44,7 +45,7 @@ def load_image(img_id):
 	    	save_image(image_path, file_path)
 	    except IndexError:
 		file_path = None
-    return file_path
+    return file_path,link
 
 
 def save_image(url, file_name):

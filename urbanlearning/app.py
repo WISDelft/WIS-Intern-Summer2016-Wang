@@ -3,16 +3,18 @@ from __init__ import *
 @app.route('/urbanlearning/api/v1.0/classify/<string:img_id>', methods=['GET'])
 def classification(img_id):
     """Image Classification"""
-    img_path = util.load_image(img_id)
+    img_path,img_url = util.load_image(img_id)
     if img_path:
         img = caffe.io.load_image(img_path)
         res_net.blobs['data'].data[...] = transformer.preprocess('data', img)
         out = res_net.forward()
         result = util.get_label_prob_pairs(out, mconf.RES_LABEL)
-	body = response.get_response(200,'image classification',img_id,result)
+	body = response.get_response(200,'image classification',img_id,result,img_url)
+	#remove file
+	os.remove(img_path)
         return jsonify(body)
     else:
-	body = response.get_response(404,'image classification',img_id,response.NOT_FOUND)
+	body = response.get_response(404,'image classification',img_id,response.NOT_FOUND,img_url)
 	return jsonify(body)
         
 
@@ -25,14 +27,15 @@ def detection(img_id):
 @app.route('/urbanlearning/api/v1.0/scene/<string:img_id>', methods=['GET'])
 def scene(img_id):
     """Scene Recognition"""
-    img_path = util.load_image(img_id)
+    img_path,img_url = util.load_image(img_id)
     if img_path:
 	out = goo_net.forward()
 	result = util.get_label_prob_pairs(out, mconf.GOO_LABEL)
-	body = response.get_response(200,'scene classification',img_id,result)
+	body = response.get_response(200,'scene classification',img_id,result,img_url)
+	os.remove(img_path)
 	return jsonify(body)
     else:
-	body = response.get_response(404,'scene classification',img_id,response.NOT_FOUND)
+	body = response.get_response(404,'scene classification',img_id,response.NOT_FOUND,img_url)
 	return jsonify(body)
     
 
