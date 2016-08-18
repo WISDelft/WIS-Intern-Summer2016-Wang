@@ -87,7 +87,17 @@ def get_label_prob_pairs(labels, probs):
         res.append(instance)
     return res
 
-
+def init_caffe(model, pretrained,binary):
+    """Initialize caffe
+    """
+    caffe.set_mode_cpu()
+    res_net = caffe.Net(model,pretrained,caffe.TEST)
+    transformer = caffe.io.Transformer({'data':res_net.blobs['data'].data.shape})
+    transformer.set_mean('data', load_mean(binary).mean(1).mean(1))
+    transformer.set_transpose('data',(2,0,1))
+    transformer.set_channel_swap('data',(2,1,0))
+    transformer.set_raw_scale('data',255.0)
+    return res_net, transformer
 
 
     
