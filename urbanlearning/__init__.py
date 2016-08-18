@@ -4,6 +4,7 @@ import conf
 import numpy as np
 import config.model_conf as mconf
 import common.util as util
+import common.response as response
 from flask import Flask, jsonify, make_response
 sys.path.insert(0, conf.CAFFE_ROOT + 'python')
 import caffe

@@ -76,9 +76,11 @@ def get_probs(out):
     probs = [float(prob) for prob in probs]
     return probs
 
-def get_label_prob_pairs(labels, probs):
+def get_label_prob_pairs(out, label_path):
     """Get label probability pair
     """
+    labels = get_labels(out,label_path)
+    probs = get_probs(out)
     res = []
     for idx, label in enumerate(labels):
 	instance = {}
