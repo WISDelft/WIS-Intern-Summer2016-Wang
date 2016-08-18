@@ -12,3 +12,4 @@ app = Flask(__name__)
 
 #init caffe and transformer
 res_net, transformer = util.init_caffe(mconf.RES_MODEL_FILE, mconf.RES_PRETRAINED,mconf.RES_MEAN_BINARY)
+goo_net, transformer_goo = util.init_caffe(mconf.GOO_MODEL_FILE, mconf.GOO_PRETRAINED, mconf.GOO_MEAN_BINARY)
