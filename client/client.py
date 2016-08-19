@@ -39,5 +39,9 @@ def tag(api_url):
 
 if __name__ == "__main__":
     api_url = 'http://139.162.195.12:5000/urbanlearning/api/v1.0/classify/'
+    #if first time start annotation, build checkpoint database first
+    #checkpoint database is used to record which images has not beed tagged
+    #if image_a tagged, remove from checkpoint database
+    #build_checkpoint()
     tag(api_url)
 	
