@@ -44,4 +44,4 @@ def not_found(error):
     return make_response(jsonify({'error': response.NOT_FOUND}), 404)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='139.162.195.12',port=5000)
