@@ -1,4 +1,6 @@
-####Urban Image Tagging with CNN
+###Urban Image Tagging with CNN
+
+b.wang-6@student.tudelft.nl
 
 The project contains three folders:
 
