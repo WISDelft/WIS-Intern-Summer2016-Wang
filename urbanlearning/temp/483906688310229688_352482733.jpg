@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchBucket</Code><Message>The specified bucket does not exist</Message><BucketName>checkthis.com</BucketName><RequestId>23B60866486B9E3A</RequestId><HostId>Hz7DgmJJI9SV5cFo/TQ3BQfxSiOzbuX0Ic1D/Q5ihWyM28zWUzxk0NwxTTHsg+x5p3I1hLc5p0I=</HostId></Error>
