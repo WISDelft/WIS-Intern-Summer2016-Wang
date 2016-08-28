@@ -19,3 +19,5 @@ Then start client:
 ```python
 ./start_client.sh
 ```
+
+Project page available at: [https://urbananalysis.github.io/](https://urbananalysis.github.io/)
