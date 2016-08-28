@@ -13,6 +13,7 @@ def overall_distribution():
 		continue
 	    [distribution.append(i['label']) for i in annotate]
     result = Counter(distribution)
+    print result.most_common(12)
     result = dict(result)
     json_writer(result, conf.DATA_PATH)
 
