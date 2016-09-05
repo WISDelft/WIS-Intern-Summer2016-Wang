@@ -17,6 +17,13 @@ def overall_distribution():
     result = dict(result)
     json_writer(result, conf.DATA_PATH)
 
+def not_appeared():
+    """Classes not appeared"""
+    label_path = '/root/caffe/caffe/data/ilsvrc12/synset_words.txt'
+    labels = np.loadtxt(label_path, str, delimiter='\t')
+    print labels
+
+
 def json_writer(json_content, path):
         '''
         @usage: export dict to json and store on local storage
@@ -29,5 +36,5 @@ def json_writer(json_content, path):
 
 
 if __name__=="__main__":
-    overall_distribution()
+    not_appeared()
 	    
